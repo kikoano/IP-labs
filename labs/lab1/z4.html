@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zadaca 4</title>
+</head>
+
+<body>
+    <script>
+        let n1 = prompt("Vnesi broj 1");
+        let n2 = prompt("Vnesi broj 2");
+        let n3 = prompt("Vnesi broj 3");
+        if (n1 && n2 && n3 && !isNaN(n1) && !isNaN(n2) && !isNaN(n3)) {
+            let pro = n1 * n2 * n3;
+            if(pro >0)
+            document.write("Znakot e +");
+            else if(pro < 0)
+            document.write("Znakot e -");
+            else
+            document.write("Brojot e 0");
+        }
+        else
+        document.write("Ne e vneseno broj!");
+    </script>
+</body>
+
+</html>

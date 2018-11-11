@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let broj;
+        let n1 = 0, n2 = 0, n3 = 0;
+        do {
+            broj = prompt("Vnesete broj");
+            if (broj % 3 == 0)
+                n1++;
+            else if (broj % 3 == 1)
+                n2++;
+            else if (broj % 3 == 2)
+                n3++;
+        } while (!isNaN(broj));
+        document.write("Vnesevote <strong>" + n1+ "</strong> broevi koi imaat ostatok 0 pri delenje so 3<br>");
+        document.write("Vnesevote <strong>" + n2+ "</strong> broevi koi imaat ostatok 1 pri delenje so 3<br>");
+        document.write("Vnesevote <strong>" + n3+ "</strong> broevi koi imaat ostatok 2 pri delenje so 3<br>");
+    </script>
+
+    </script>
+</body>
+
+</html>

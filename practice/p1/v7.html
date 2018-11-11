@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let broj;
+        let max = Number.MIN_SAFE_INTEGER;
+        do {
+            broj = prompt("Vnesete broj:");
+            if (!isNaN(broj) && broj > max)
+                max = broj;
+
+        } while (!isNaN(broj));
+        document.write("Najgolemiot broj sto go vnesovte e "+ max);
+    </script>
+</body>
+
+</html>

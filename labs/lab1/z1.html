@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zadaca 1</title>
+</head>
+
+<body>
+    <script>
+        let number = prompt("Vnesi tricifren broj:");
+        if (!isNaN(number) && number) {
+            if (number.length == 3) {
+                if (number - [...number].reverse().join("") == 0)
+                    document.write("Brojot " + number + " e palindrom.");
+                else
+                    document.write("Brojot " + number + " ne e palindrom.");
+            }
+            else
+                document.write("Ne e tricifren broj!");
+        }
+        else
+            document.write("Ne e vneseno broj!");
+    </script>
+</body>
+
+</html>
