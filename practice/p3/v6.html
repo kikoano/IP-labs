@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>V7</title>
+    <script>
+        const text_truncate=(str,pos,add="...")=>{
+            if(pos)
+            return str.substring(0,pos - add.length)+add;
+            return str;
+        }
+        console.log(text_truncate('We are doing JS string exercises.'));
+        console.log(text_truncate('We are doing JS string exercises.', 19));
+        console.log(text_truncate('We are doing JS string exercises.', 15, '!!'));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

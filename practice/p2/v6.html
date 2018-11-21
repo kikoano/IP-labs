@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>V6</title>
+    <script>
+        const getOptions = ()=>{
+            let opt =document.querySelectorAll("#mySelect option");
+            let text ="Lenght: " + opt.length;
+            text += [...opt].reduce((a,c)=>a+="\n"+c.text," ");
+            alert(text);
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        Select your favorite Color :
+        <select id="mySelect">
+            <option>Red</option>
+            <option>Green</option>
+            <option>Blue</option>
+            <option>White</option>
+        </select>
+        <input type="button" onclick="getOptions()" value="Count and Output all items">
+    </form>
+</body>
+
+</html>

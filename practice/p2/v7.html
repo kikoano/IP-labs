@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>V7</title>
+    <style>
+        label, input{
+            display: block;
+        }
+    </style>
+    <script>
+        const calculate = () => {
+            document.getElementById("volume").value = 4 / 3 * Math.PI * Math.pow(document.getElementById("radius").value, 3);
+        }
+    </script>
+</head>
+
+<body>
+    <p>Input radius value and get the volume of a sphere.</p>
+    <label for="radius">Radius</label>
+    <input type="text" name="radius" id="radius" required>
+    <label for="volume">Volume</label>
+    <input type="text" name="volume" id="volume">
+    <button onclick="calculate()">Calculate</button>
+</body>
+
+</html>

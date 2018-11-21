@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kol1</title>
+    <style>
+        label {
+            width: 100px;
+            display: inline-block;
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
+
+        #details, #history {
+            width: 400px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        #students {
+            display: block;
+        }
+        .myH{
+            display: inline;
+        }
+        table{
+            border-collapse: collapse;
+        }
+    </style>
+    <script>
+        class Student{
+            constructor(index,grade){
+                this.index = index;
+                this.grade = grade;
+            }
+        }
+        grades =[];
+        const addStudent = ()=>{
+            let name = document.getElementById("name").value;
+            let index = document.getElementById("index").value;
+            let phone = document.getElementById("phone").value;
+            let grade = document.querySelector("input[type='radio']:checked").value;
+            let session = document.getElementById("session").value;
+            let table = document.getElementById("table");
+            if(name != "" && index != "" && !isNaN(phone) && phone.length==9 && grade!=""){
+                let row = table.insertRow();
+                row.insertCell().innerHTML=name;
+                row.insertCell().innerHTML=index;
+                row.insertCell().innerHTML=formatPhone(phone);
+                row.insertCell().innerHTML=grade;
+                grades.push(new Student(index,grade));
+                row.insertCell().innerHTML=session;
+                row.insertCell().innerHTML="<button onclick='confirm(this)'>Confirm</button> <button onclick='revert(this)'>Revert</button>";
+            }
+            showAverage();
+
+        }
+        const formatPhone=(phone)=>{
+            return phone.slice(0,3) + "/"+phone.slice(3,6) + "-" + phone.slice(6,9);
+        }
+        const confirm=(self)=>{
+            self.disabled=true;
+            self.parentNode.lastChild.disabled=true;
+            let row =self.parentNode.parentNode;
+            row.style.backgroundColor ="lightGreen";
+        }
+        const revert=(self)=>{
+            let ind = self.parentNode.parentNode.rowIndex;
+            document.getElementById("revert").innerHTML+="<li>"+grades[ind-1].index+"- grade"+grades[ind-1].grade+"</li>"
+            document.getElementById("table").deleteRow(ind);
+            grades.splice(ind-1,1);
+            showAverage();
+        }
+        const showAverage=()=>{
+            if(grades)
+            document.getElementById("average").innerHTML="(average grade: "+grades.reduce((a,c)=>a+Number(c.grade),0)/grades.length+")";
+            else
+            document.getElementById("average").innerHTML="";
+        }
+    </script>
+</head>
+<body>
+<div id="details">
+    <h2>Details</h2>
+    <label>Name</label> <input id="name" type="text"><br>
+    <label>Index</label> <input id="index" type="text"><br>
+    <label>Phone</label> <input id="phone" type="text"><br>
+    <label>Grade</label>
+    <input type="radio" name="grade" value="5"> 5
+    <input type="radio" name="grade" value="6"> 6
+    <input type="radio" name="grade" value="7"> 7
+    <input type="radio" name="grade" value="8"> 8
+    <input type="radio" name="grade" value="9"> 9
+    <input type="radio" name="grade" value="10"> 10
+    <br>
+    <label>Session</label>
+    <select id="session">
+        <option>January</option>
+        <option>June</option>
+        <option>September</option>
+    </select>
+    <br><br>
+    <button onclick="addStudent()">Import Submit</button>
+</div>
+<div id="history">
+    <h2>Revert history</h2>
+    <ul id="revert">
+
+    </ul>
+</div>
+<div id="students">
+    <h2 class="myH">Students</h2> <h3 id="average" class="myH"></h3>
+    <table id="table" border="1">
+        <tr>
+        <th>Name</th>
+        <th>Index</th>
+        <th>Phone</th>
+        <th>Grade</th>
+        <th>Session</th>
+        <th>Actions</th>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

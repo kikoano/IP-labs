@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>V7</title>
+    <script>
+    const remove_first_occurrence=(str,search)=>{
+        let arr = str.split(" ");
+        for(const s of arr){
+            if(s === search){
+                arr.splice(arr.indexOf(s),1);
+                break;
+            }
+        }
+        return arr.join(" ");
+
+    }
+    console.log(remove_first_occurrence("The quick brown fox jumps over the lazy dog", 'the'));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

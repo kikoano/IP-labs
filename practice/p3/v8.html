@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>V8</title>
+    <script>
+        const subStrAfterChars = (str, pos, mode) => {
+            if (mode == "a")
+                return str.substr(0,str.indexOf(pos));
+            else if (mode == "b")
+                return str.substr(str.indexOf(pos)+1);
+            return str;
+        }
+        console.log(subStrAfterChars('w3resource: JavaScript Exercises', ':', 'a'));
+        console.log(subStrAfterChars('w3resource: JavaScript Exercises', 'E', 'b'));
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>V3</title>
+    <script>
+        const string_parameterize = (str) => {
+            return [...str.trim().toLowerCase()].reduce((a, c) => {
+                if (c == " "){
+                    if(a.charAt(a.length-1)!="-")
+                        a+="-";
+                }    
+                else
+                    a += c;
+                return a;
+            }, "");
+        }
+        console.log(string_parameterize("Robin    Singh from USA."));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
