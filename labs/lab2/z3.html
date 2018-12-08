@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>About Me</title>
+</head>
+
+<body>
+    <h1>About Me</h1>
+    ИНТЕРНЕТ ПРОГРАМИРАЊЕ
+    <ul>
+        <li>Name: <span id="name"></span>
+        <li>Index: <span id="index"></span>
+        <li>Hometown: <span id="hometown"></span>
+    </ul>
+    <script>
+        document.querySelector("body").style.fontFamily = "Arial";
+        document.getElementById("name").innerHTML = "Kristijan";
+        document.getElementById("index").innerHTML = "151170";
+        document.getElementById("hometown").innerHTML = "Skopje";
+        [...document.getElementsByTagName("li")].map(e=>e.style.backgroundColor="red");
+    </script>
+</body>
+
+</html>

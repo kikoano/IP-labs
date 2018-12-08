@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zad4</title>
+    <style>
+        input{
+            width: 50px;
+        }
+    </style>
+    <script>
+        const add = ()=>{
+            document.getElementById("res").value = Number(document.getElementById("num1").value) + Number(document.getElementById("num2").value);
+            document.getElementById("resi").value = Number(document.getElementById("num1i").value) + Number(document.getElementById("num2i").value);
+        }
+    </script>
+</head>
+<body>
+    <input id="num1" type="text">
+    <input id="num1i" type="text"><i> i</i>
+    <br> <br>
+    <input id="num2" type="text">
+    <input id="num2i" type="text"><i> i</i>
+    <br> <br>
+    <button onclick="add()">Add</button>
+    <br> <br>
+    <input id="res" type="text">
+    <input id="resi" type="text"><i> i</i>
+    <br>
+</body>
+</html>
