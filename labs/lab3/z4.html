@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zad 4</title>
+    <script>
+        class Book {
+            constructor(title, author, alreadyRead) {
+                this.title = title;
+                this.author = author;
+                this.alreadyRead = alreadyRead;
+            }
+            toString() {
+                return "You " + (this.alreadyRead ? "already " : "still need to ") + "read " + "\"" + this.title + "\"" + " by " + this.author;
+            }
+        }
+        let list = [new Book("The Hobbit", "J.R.R. Tolkien", true), new Book("The Lord of the Rings", "J.R.R. Tolkien", false)]
+        list.forEach(b => console.log(b.toString()));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
