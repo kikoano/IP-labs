@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zad 1</title>
+    <style>
+        .block label {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+        }
+        .block{
+            margin-bottom: 8px;
+        }
+        .block button{
+            margin-left: 100px
+        }
+        table, td, th{
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        class Student {
+            constructor(ime, prezime, indeks, predmet, ocena) {
+                this.ime = ime;
+                this.prezime = prezime;
+                this.indeks = indeks;
+                this.predmet = predmet;
+                this.ocena = ocena;
+            }
+        }
+        students = [];
+        const addStudent = () => {
+            const inputs = document.getElementsByTagName("input");
+            const ime = inputs[0].value;
+            const prezime = inputs[1].value;
+            const indeks = inputs[2].value;
+            const predmet = inputs[3].value;
+            const ocena = document.getElementsByTagName("select")[0].value;
+            const table = document.getElementById("studentsTable");
+            if (ime && prezime && indeks && predmet && ocena) {
+                let row = table.insertRow();
+                row.insertCell().innerText = ime;
+                row.insertCell().innerText = prezime;
+                row.insertCell().innerText = indeks;
+                row.insertCell().innerText = predmet;
+                row.insertCell().innerText = ocena;
+                students.push(new Student(ime, prezime, indeks, predmet, ocena));
+                for (let input of inputs) {
+                    input.value = "";
+                }
+                document.getElementsByTagName("select")[0].selectedIndex = 0;
+
+            }
+            else {
+                alert("Не се потполнети сите полиња!");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Форма за внесување оцени</h1>
+    <div id="myForm">
+        <div class="block">
+            <label>Име: </label><input type="text">
+        </div>
+        <div class="block">
+            <label>Презиме: </label><input type="text">
+        </div>
+        <div class="block">
+            <label>Индекс: </label><input type="text">
+        </div>
+        <div class="block">
+            <label>Предмет: </label><input type="text">
+        </div>
+        <div class="block">
+            <label>Оцена: </label>
+            <select>
+                <option>5 (пет)</option>
+                <option>6 (шест)</option>
+                <option>7 (седум)</option>
+                <option>8 (осум)</option>
+                <option>9 (девет)</option>
+                <option>10 (десет)</option>
+            </select>
+        </div>
+        <div class="block">
+            <button onclick="addStudent()">Внеси</button>
+        </div>
+    </div>
+    <table id="studentsTable">
+        <tr>
+            <th>Име</th>
+            <th>Презиме
+            <th>Индекс</th>
+            <th>Предмет</th>
+            <th>Оцена</th>
+        </tr>
+    </table>
+</body>
+
+</html>

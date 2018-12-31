@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zad 2</title>
+    <style>
+        .myForm {
+            width: 220px;
+        }
+
+        .myForm input,
+        .myForm button,
+        .myForm select {
+            float: right;
+        }
+    </style>
+    <script>
+        const create = () => {
+            const items = document.getElementById("items").value.trim().split(",");
+            let show = document.getElementById("show");
+            if (items[0] != "") {
+                while(show.hasChildNodes())
+                    show.removeChild(show.firstChild);
+                const type = document.getElementById("type").value;
+                for (let i = 0; i < items.length; i++) {
+                    let element = document.createElement("input");
+                    element.setAttribute("type", type);
+                    if (type == "radio")
+                        element.setAttribute("name", "rad");
+                    let elementText = document.createTextNode(items[i]);
+                    show.appendChild(element);
+                    show.appendChild(elementText);
+                }
+            }
+            else
+                alert("Enter items!");
+        }
+    </script>
+</head>
+
+<body>
+    <div class="myForm">
+        <label>Items: </label><input id="items">
+        <br><br>
+        <label>Type: </label>
+        <select id="type">
+            <option value="radio">Radio button</option>
+            <option value="checkbox">Check box</option>
+        </select>
+        <br><br>
+        <button onclick="create()">Прикажи</button>
+    </div>
+    <br>
+    <br>
+    <div id="show"></div>
+</body>
+
+</html>

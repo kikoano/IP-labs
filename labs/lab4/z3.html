@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zad 3</title>
+    <script>
+        const change = () => {
+            const radios = document.getElementsByName("type");
+            const value = document.getElementById("value").value;
+            if (radios[0].checked) {
+                document.body.style.background = "none";
+                document.body.style.backgroundColor = value;
+            }
+            else if (radios[1].checked)
+                document.body.style.background = "url(" + value + ")";
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Промена на позадина</h1>
+    <input type="radio" name="type"> Color
+    <input type="radio" name="type"> Image
+    <br><br>
+    Value: <input type="text" id="value">
+    <br><br>
+    <button onclick="change()">Промени</button>
+</body>
+
+</html>
