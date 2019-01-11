@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+    <div>
+        <div style="text-align:right; float:left">
+            <label id="obid">Обиди 0</label>
+            <p>Погодок: <input id="guess" style="width:150px" /></p>
+            <button id="btnGuess" onclick="guess()">Погоди</button>
+            <button onclick="reset()">Од почеток</button>
+        </div>
+    </div>
+    <br />
+    <div id="prikaz" style="clear: both">
+    </div>
+    <script>
+        let randomNumber;
+        let numTry;
+        const reset = () => {
+            randomNumber = Math.floor(Math.random() * (10000 - 1000)) + 1000;
+            numTry = 0;
+            document.getElementById("obid").innerText = "Обиди " + numTry;
+            document.getElementById("btnGuess").disabled = false;
+            document.getElementById("prikaz").innerText = "";
+            document.getElementById("guess").value = "";
+        }
+        const createItem = (text) => {
+            let div = document.createElement("div");
+            let node = document.createTextNode(text);
+            div.appendChild(node);
+            return div;
+
+        }
+        const guess = () => {
+            const guess = document.getElementById("guess").value;
+            let prikaz = document.getElementById("prikaz");
+            numTry++;
+            document.getElementById("obid").innerText = "Обиди " + numTry;
+
+            let has = 0;
+            let place = 0;
+            let skip = [];
+            for (let i = 0; i < guess.length; i++) {
+                if (randomNumber.toString()[i] == guess[i]) {
+                    place++;
+                    skip.push(i);
+                }
+            }
+            for (let i = 0; i < guess.length; i++) {
+                if (!skip.includes(i))
+                    for (let j = 0; j < randomNumber.toString().length; j++) {
+                        if (randomNumber.toString()[j] == guess[i] && !skip.includes(j)) {
+                            has++;
+                        }
+                    }
+            }
+            prikaz.appendChild(createItem("Има " + has + ", на место " + place + " " + guess));
+
+            if (guess == randomNumber) {
+                prikaz.appendChild(createItem("ПОГОДОК!!!"));
+                document.getElementById("btnGuess").disabled = true;
+                return;
+            }
+
+            if (numTry >= 10) {
+                prikaz.appendChild(createItem("Не успеавте да погодите од 10 обиди. Бројот е " + randomNumber));
+                document.getElementById("btnGuess").disabled = true;
+            }
+        }
+        reset();
+
+    </script>
+</body>
+
+</html>
