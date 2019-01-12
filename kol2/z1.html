@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zad 1</title>
+    <script>
+        const btnDraw = () => {
+            const colorsInput = document.getElementById("colors");
+            const delimiter = document.getElementById("delimiter").value;
+            const colors = colorsInput.value.split(delimiter);
+            const draw = document.getElementById("draw");
+            draw.innerHTML="";
+            for (let color of colors) {
+                let div = document.createElement("div");
+                div.style.backgroundColor = color;
+                div.style.width = "50px";
+                div.style.height = "50px";
+                div.style.cssFloat = "left";
+                div.onclick = ()=>{
+                    draw.removeChild(div);
+                    const children= draw.childNodes;
+                    colorsInput.value="";
+                    children.forEach((e)=>colorsInput.value+=e.style.backgroundColor+delimiter);
+                    colorsInput.value=colorsInput.value.slice(0,-delimiter.length);
+                    
+                }
+                draw.appendChild(div);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    Colors
+    <br><br>
+    <input id="colors" type="text">
+    <br><br>
+    Delimiter
+    <br><br>
+    <input id="delimiter" type="text">
+    <br><br>
+    <button id="btnDraw" onclick="btnDraw()">Draw</button>
+    <div id="draw"></div>
+</body>
+
+</html>

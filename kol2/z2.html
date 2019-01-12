@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zad 2</title>
+    <style>
+        input[type="number"]{
+            width: 50px;
+        }
+    </style>
+    <script>
+        const add = () => {
+            const text = document.getElementById("text");
+            const main = document.getElementById("main");
+            const radio = document.querySelector("input:checked");
+            let t = document.createElement("div");
+            t.style.color = "rgb(" + document.getElementById("red").value + "," + document.getElementById("green").value + "," + document.getElementById("blue").value + ")";
+            t.appendChild(document.createTextNode(text.value));
+            if (radio.value == "end")
+                main.appendChild(t);
+            else if (radio.value == "start")
+                if (main.hasChildNodes())
+                    main.insertBefore(t, main.firstChild);
+                else
+                    main.appendChild(t);
+            text.value = "";
+
+        }
+        const remove = () => {
+            const main = document.getElementById("main");
+            const radio = document.querySelector("input:checked");
+            if (main.hasChildNodes()) {
+                if (radio.value == "end")
+                    main.removeChild(main.lastChild);
+                else if (radio.value == "start")
+                    main.removeChild(main.firstChild);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    Red<input id="red" type="number" min="0" max="255" value="0"> (0-255)<br>
+    Green<input id="green" type="number" min="0" max="255" value="0"> (0-255)<br>
+    Blue<input id="blue" type="number" min="0" max="255" value="0"> (0-255)<br><br>
+
+    <input type="radio" name="point" value="start" checked> Start
+    <br>
+    <input type="radio" name="point" value="end"> End
+    <br><br>
+    Text:<input id="text" type="text">
+    <br><br>
+    <button onclick="add()">Add</button>
+    <button onclick="remove()">Delete</button>
+    <div id="main"></div>
+</body>
+
+</html>

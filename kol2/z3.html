@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zad 3</title>
+    <script src="jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <img src="snowflake.png">
+    <img src="snowflake.png">
+    <img src="snowflake.png">
+    <img src="snowflake.png">
+    <img src="snowflake.png">
+    <script>
+        let imgs = document.getElementsByTagName("img");
+        let speeds = [200, 600, 800, 1000, 1200];
+        for (img of imgs) {
+            console.log(img);
+            img.style.position = "absolute";
+            img.style.top = "0px";
+            img.style.left = "0px";
+            img.style.width = "150px";
+        }
+        document.onclick = (e) => {
+            imgsj = $("img");
+            for (i = 0; i < imgs.length; i++) {
+                $(imgsj[i]).animate({ top: event.pageY - 75, left: event.pageX - 75 }, speeds[i], function () { })
+            }
+        }
+    </script>
+</body>
+
+</html>
